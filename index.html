@@ -146,8 +146,9 @@
     </div>
     <div class="crt reveal">
       <div class="crt-screen">
-        <video id="nightvid" controls muted playsinline loop preload="metadata"></video>
+        <video id="nightvid" controls muted playsinline preload="metadata"></video>
         <div class="crt-scan" aria-hidden="true"></div>
+        <div id="crt-static" class="crt-static" aria-hidden="true"></div>
         <div class="crt-rec" aria-hidden="true"><span class="rec-dot"></span>REC</div>
         <div class="crt-time" aria-hidden="true">THU 10:00 PM</div>
       </div>
@@ -227,17 +228,34 @@ import { initGrid, initReveals, initMarquee } from './js/fx.js';
 import { initDeck } from './js/deck.js';
 import { initMapsSheet } from './js/maps.js';
 
-// swap slots — one line each when the real assets land
-const VIDEO_URL = 'https://video.wixstatic.com/video/d95226_dd165bfea31942dcbfde154791566a03/720p/mp4/file.mp4';
+// CRT channel-surf — all clips silent by design; swap/add entries when new footage lands
+// (Rikki's commercial: drop the file in assets/night and put it first in this list)
+const CRT_PLAYLIST = [
+  'assets/night/crt-1.mp4',
+  'assets/night/crt-2.mp4',
+  'assets/night/crt-3.mp4',
+];
 
 const nv = document.getElementById('nightvid');
+const crtFrame = document.querySelector('.crt');
+const crtStatic = document.getElementById('crt-static');
+let channel = 0;
+function tune(i) {
+  channel = (i + CRT_PLAYLIST.length) % CRT_PLAYLIST.length;
+  crtStatic.classList.add('on');
+  setTimeout(() => {
+    nv.src = CRT_PLAYLIST[channel];
+    nv.play().catch(() => {});
+    setTimeout(() => crtStatic.classList.remove('on'), 220);
+  }, 140);
+}
 nv.muted = true;
 nv.autoplay = true;
 nv.addEventListener('loadedmetadata', () => {
-  if (nv.videoHeight > nv.videoWidth) document.querySelector('.crt').classList.add('vertical');
+  crtFrame.classList.toggle('vertical', nv.videoHeight > nv.videoWidth);
 });
-nv.src = VIDEO_URL;
-nv.play().catch(() => {});
+nv.addEventListener('ended', () => tune(channel + 1));
+tune(0);
 initGrid(document.getElementById('grid'));
 initMarquee(document.getElementById('marquee-track'));
 initReveals();
