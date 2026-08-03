@@ -1,7 +1,7 @@
 // Cassette deck — custom VHS transport driving a hidden SoundCloud widget.
 // SoundCloud does the playing (and keeps the link + download); our controls keep the look.
 // Swap MIX_URL when a new mix drops — everything else adapts.
-const MIX_URL = 'https://soundcloud.com/livius-live/house-to-techno';
+const MIX_URL = 'https://soundcloud.com/livius-live/mix-001-ladies-luv-livius';
 const AUTO_PLAY = true; // party-landing mode: start on load where allowed, else on first touch
 
 function fmt(ms) {
