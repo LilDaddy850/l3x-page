@@ -8,7 +8,7 @@
 <meta property="og:title" content="LADIES LUV LIVIUS — Thursdays at The Social">
 <meta property="og:description" content="Reggaeton, dembow, baile funk & house every Thursday night in downtown Orlando. Ladies 18+ free. 10PM doors.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="kit/graphics/og.png">
+<meta property="og:image" content="https://lildaddy850.github.io/l3x-page/kit/graphics/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="css/tokens.css">
@@ -28,7 +28,7 @@
       <a href="https://www.theblockorlando.com/venues">VENUES</a>
       <a href="https://www.theblockorlando.com/vip">VIP</a>
       <a href="https://www.theblockorlando.com/contact">CONTACT</a>
-      <a href="https://www.theblockorlando.com/contact">FAQ</a>
+      <a href="https://www.theblockorlando.com/contact#faq">FAQ</a>
       <a href="https://www.theblockorlando.com/live">LIVE MUSIC</a>
     </nav>
     <div class="head-socials">
@@ -195,7 +195,14 @@ import { initDeck } from './js/deck.js';
 // swap slots — one line each when the real assets land
 const VIDEO_URL = 'https://video.wixstatic.com/video/d95226_dd165bfea31942dcbfde154791566a03/720p/mp4/file.mp4';
 
-document.getElementById('nightvid').src = VIDEO_URL;
+const nv = document.getElementById('nightvid');
+nv.muted = true;
+nv.autoplay = true;
+nv.addEventListener('loadedmetadata', () => {
+  if (nv.videoHeight > nv.videoWidth) document.querySelector('.crt').classList.add('vertical');
+});
+nv.src = VIDEO_URL;
+nv.play().catch(() => {});
 initGrid(document.getElementById('grid'));
 initMarquee(document.getElementById('marquee-track'));
 initReveals();

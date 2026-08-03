@@ -140,7 +140,20 @@ export function initReveals() {
 }
 
 export function initMarquee(track) {
-  // triple the content so translateX(-33.333%) loops seamlessly
+  // Clone enough copies that the belt always overfills the viewport, then
+  // shift by exactly one copy-width per loop — measured AFTER fonts load so
+  // the seam lands pixel-perfect. Speed is constant (85px/s) at any width.
   const original = [...track.children];
-  for (let i = 0; i < 2; i++) original.forEach((n) => track.append(n.cloneNode(true)));
+  function build() {
+    [...track.children].forEach((n, i) => { if (i >= original.length) n.remove(); });
+    const w1 = track.scrollWidth;
+    if (!w1) return;
+    const copies = Math.max(3, Math.ceil((innerWidth * 2) / w1) + 1);
+    for (let i = 0; i < copies - 1; i++) original.forEach((n) => track.append(n.cloneNode(true)));
+    track.style.setProperty('--mq-shift', w1 + 'px');
+    track.style.setProperty('--mq-dur', (w1 / 85).toFixed(2) + 's');
+  }
+  (document.fonts?.ready || Promise.resolve()).then(build);
+  let rt;
+  addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(build, 200); });
 }
