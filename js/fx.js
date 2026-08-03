@@ -8,7 +8,8 @@ export function initGrid(canvas, fixed) {
   let w, h, raf = 0, running = false;
 
   function size() {
-    const d = Math.min(devicePixelRatio || 1, 2);
+    // cap 3 so iPhone (DPR 3) renders crisp — capping at 2 upscales into thick blurry lines
+    const d = Math.min(devicePixelRatio || 1, 3);
     w = fixed ? fixed.w : canvas.clientWidth;
     h = fixed ? fixed.h : canvas.clientHeight;
     canvas.width = w * d;
@@ -38,8 +39,8 @@ export function initGrid(canvas, fixed) {
       ctx.fillRect(sx, sy, i % 7 === 0 ? 1.6 : 1, i % 7 === 0 ? 1.6 : 1);
     }
 
-    // sun with blinds
-    const sr = Math.min(w, h) * 0.21;
+    // sun with blinds — bigger on portrait phones so it reads behind the logotype
+    const sr = h > w ? w * 0.34 : Math.min(w, h) * 0.21;
     const sg = ctx.createLinearGradient(0, hy - sr, 0, hy);
     sg.addColorStop(0, '#FF9E1F');
     sg.addColorStop(1, '#FF2D95');
@@ -55,12 +56,16 @@ export function initGrid(canvas, fixed) {
     ctx.fillStyle = '#0A0118';
     for (let i = 1; i < 7; i++) {
       const y = hy - sr + (sr / 7) * i + sr / 14;
-      ctx.fillRect(w / 2 - sr - 4, y, sr * 2 + 8, 1.5 + i * 0.85);
+      ctx.fillRect(w / 2 - sr - 4, y, sr * 2 + 8, sr * (0.012 + i * 0.009));
     }
 
     // floor
     ctx.fillStyle = '#0A0118';
     ctx.fillRect(0, hy, w, h - hy);
+
+    // dark horizon cut — the black line the chrome logotype sits on
+    ctx.fillStyle = '#05000F';
+    ctx.fillRect(0, hy - 5, w, 5);
 
     // horizon glow line
     const hg = ctx.createLinearGradient(0, hy - 2, 0, hy + 6);

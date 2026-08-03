@@ -112,6 +112,21 @@
         <div class="reel reel-r" id="reelR"><div class="hub"></div></div>
       </div>
       <div class="vu" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div id="transport" class="transport">
+        <div class="t-row">
+          <button id="t-play" class="t-btn" aria-label="Play mix">►</button>
+          <button id="t-stop" class="t-btn t-stop" aria-label="Stop">■</button>
+          <div class="t-mid">
+            <div id="t-title" class="t-title">LADIES LUV LIVIUS — MIX 001</div>
+            <div id="t-rail" class="t-rail"><div id="t-fill" class="t-fill"></div></div>
+          </div>
+          <div class="t-time"><span id="t-pos">00:00</span><span class="t-sep">/</span><span id="t-dur">--:--</span></div>
+        </div>
+        <div class="t-links">
+          <a id="t-sc" href="https://soundcloud.com/livius-live" target="_blank" rel="noopener">OPEN IN SOUNDCLOUD ↗</a>
+          <a id="t-dl" href="https://soundcloud.com/livius-live" target="_blank" rel="noopener">DOWNLOAD ↓</a>
+        </div>
+      </div>
       <div id="sc-slot" class="sc-slot"></div>
     </div>
   </div>
@@ -187,6 +202,8 @@
     </div>
   </div>
 </footer>
+
+<button id="sound-pill" hidden>► TAP FOR SOUND</button>
 
 <script type="module">
 import { initGrid, initReveals, initMarquee } from './js/fx.js';
