@@ -15,9 +15,13 @@ Everything here is plug-and-play — two levels, use either or both.
 2. **Slideshow graphics**: add the PNGs in `graphics/` to the slideshow —
    `deal-1/2/3.png` (1080×1350) and `still-1/2/3.png` (1920×1080). They're the same
    visual system as the site, sized for feed + widescreen slots.
-3. **Music player**: Add → Video & Music → SoundCloud, paste the mix URL
-   (Ed will send the final MIX 001 link).
-4. `graphics/og.png` (1200×630) works as the page's social-share image if you want
+3. **Music player**: Add → Video & Music → SoundCloud, paste the mix URL:
+   `https://soundcloud.com/livius-live/mix-001-ladies-luv-livius`
+   (MIX 001 — a 12-minute mix made for the night, cover art matches the page.)
+4. **Cleaner footage**: `clips/clip-1.mp4` and `clips/clip-2.mp4` — two short, clean
+   crowd clips from the night (silent, small files). They work in the slideshow or as
+   section backgrounds. A formal commercial is in production and coming separately.
+5. `graphics/og.png` (1200×630) works as the page's social-share image if you want
    link previews to show the branded artwork.
 
 ## Level 2 — one paste (the full glow-up)
