@@ -76,20 +76,18 @@ export function initDeck() {
     wg.bind(SC.Widget.Events.PLAY, () => {
       started = true; playing = true;
       deck.classList.add('playing');
-      playBtn.textContent = '❚❚';
       playBtn.setAttribute('aria-label', 'Pause mix');
       hidePill();
     });
     wg.bind(SC.Widget.Events.PAUSE, () => {
       playing = false;
       deck.classList.remove('playing');
-      playBtn.textContent = '►';
       playBtn.setAttribute('aria-label', 'Play mix');
     });
     wg.bind(SC.Widget.Events.FINISH, () => {
       playing = false;
       deck.classList.remove('playing');
-      playBtn.textContent = '►';
+      playBtn.setAttribute('aria-label', 'Play mix');
       fill.style.width = '0%';
       posEl.textContent = '00:00';
     });

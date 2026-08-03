@@ -56,7 +56,7 @@ export function initGrid(canvas, fixed) {
     ctx.fillStyle = '#0A0118';
     for (let i = 1; i < 7; i++) {
       const y = hy - sr + (sr / 7) * i + sr / 14;
-      ctx.fillRect(w / 2 - sr - 4, y, sr * 2 + 8, sr * (0.012 + i * 0.009));
+      ctx.fillRect(w / 2 - sr - 4, y, sr * 2 + 8, sr * (0.005 + i * 0.0045));
     }
 
     // floor

@@ -639,6 +639,12 @@ section { position: relative; }
   .head-logo img { height: 46px; }
   .head-tabs { order: 3; width: 100%; justify-content: flex-start; margin: 2px -8px 0; }
 }
+/* landscape phones: shorter header, push hero content below it */
+@media (max-height: 520px) {
+  .head-logo img { height: 42px; }
+  .hero-inner { padding-top: 150px; padding-bottom: 110px; }
+  .badge { margin-bottom: 26px; }
+}
 
 /* ═══════════ official marks + legal tier ═══════════ */
 .social-mark {
@@ -714,7 +720,11 @@ section { position: relative; }
 .t-btn:hover { color: var(--text); }
 .t-btn:active { transform: translateY(3px); box-shadow: 0 0 0 #0B0618, inset 0 1px 0 rgba(255, 255, 255, 0.1); }
 .t-btn:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
-.playing #t-play { color: var(--magenta); text-shadow: 0 0 10px rgba(255, 45, 149, 0.8); }
+.t-btn svg { width: 13px; height: 13px; fill: currentColor; display: block; margin: 0 auto; }
+.t-btn .i-pause { display: none; }
+.playing #t-play .i-play { display: none; }
+.playing #t-play .i-pause { display: block; }
+.playing #t-play { color: var(--magenta); filter: drop-shadow(0 0 8px rgba(255, 45, 149, 0.8)); }
 .t-mid { flex: 1; min-width: 0; }
 .t-title {
   font-family: var(--f-mono);

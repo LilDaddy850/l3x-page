@@ -114,8 +114,13 @@
       <div class="vu" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
       <div id="transport" class="transport">
         <div class="t-row">
-          <button id="t-play" class="t-btn" aria-label="Play mix">►</button>
-          <button id="t-stop" class="t-btn t-stop" aria-label="Stop">■</button>
+          <button id="t-play" class="t-btn" aria-label="Play mix">
+            <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2l10 6-10 6z"/></svg>
+            <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 2h4v12H3zM9 2h4v12H9z"/></svg>
+          </button>
+          <button id="t-stop" class="t-btn t-stop" aria-label="Stop">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3h10v10H3z"/></svg>
+          </button>
           <div class="t-mid">
             <div id="t-title" class="t-title">LADIES LUV LIVIUS — MIX 001</div>
             <div id="t-rail" class="t-rail"><div id="t-fill" class="t-fill"></div></div>
@@ -203,7 +208,7 @@
   </div>
 </footer>
 
-<button id="sound-pill" hidden>► TAP FOR SOUND</button>
+<button id="sound-pill" hidden>TAP FOR SOUND</button>
 
 <script type="module">
 import { initGrid, initReveals, initMarquee } from './js/fx.js';
