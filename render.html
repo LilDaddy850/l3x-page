@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>hero loop render</title>
+<style>
+  html, body { margin: 0; background: #000; }
+  canvas { display: block; }
+  #rec { position: fixed; top: 10px; right: 10px; z-index: 9; font: 14px monospace; padding: 10px 16px; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<button id="rec">record 12s</button>
+<script type="module">
+import { initGrid } from './js/fx.js';
+
+const q = new URLSearchParams(location.search);
+const W = parseInt(q.get('w') || '1920', 10);
+const H = parseInt(q.get('h') || '1080', 10);
+const c = document.getElementById('c');
+c.width = W; c.height = H;
+c.style.width = Math.min(W, innerWidth - 20) + 'px';
+const g = initGrid(c, { w: W, h: H });
+
+// Deterministic export: draw() is a pure function of time, so stepping
+// t = i * P/240 gives 240 frames of one exact loop — throttle-proof, seam-proof.
+document.getElementById('rec').addEventListener('click', async () => {
+  const btn = document.getElementById('rec');
+  g.stop();
+  const N = 240;
+  for (let i = 0; i < N; i++) {
+    g.draw(i * (4000 / N));
+    const blob = await new Promise((r) => c.toBlob(r, 'image/png'));
+    await fetch(`/save/f-${W}x${H}-${String(i).padStart(3, '0')}.png`, { method: 'POST', body: blob });
+    if (i % 30 === 0) btn.textContent = `frames ${i}/${N}`;
+  }
+  btn.textContent = 'frames done';
+});
+</script>
+</body>
+</html>

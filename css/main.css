@@ -794,6 +794,63 @@ section { position: relative; }
 }
 #sound-pill[hidden] { display: none; }
 @keyframes pillPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.07); } }
+
+/* maps chooser sheet */
+#maps-sheet { position: fixed; inset: 0; z-index: 600; }
+#maps-sheet[hidden] { display: none; }
+.ms-backdrop {
+  position: absolute; inset: 0;
+  background: rgba(5, 0, 15, 0.6);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  transition: opacity 0.25s var(--ease);
+}
+.ms-card {
+  position: absolute;
+  left: 50%; bottom: 24px;
+  transform: translate(-50%, 24px);
+  width: min(360px, calc(100vw - 32px));
+  padding: 22px 20px 16px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #2A2140, #140826);
+  border: 1px solid rgba(255, 45, 149, 0.3);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
+}
+#maps-sheet.open .ms-backdrop { opacity: 1; }
+#maps-sheet.open .ms-card { opacity: 1; transform: translate(-50%, 0); }
+.ms-title { font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.16em; color: var(--cyan); }
+.ms-addr { font-family: var(--f-cond); font-weight: 300; font-size: 12px; letter-spacing: 0.12em; color: var(--text-mute); margin: 8px 0 16px; }
+.ms-list { display: flex; flex-direction: column; gap: 8px; }
+.ms-list a {
+  display: block;
+  font-family: var(--f-cond);
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text);
+  padding: 13px;
+  border-radius: 9px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  transition: border-color 0.25s var(--ease), background 0.25s var(--ease), color 0.25s var(--ease);
+}
+.ms-list a:hover { border-color: rgba(0, 229, 255, 0.5); background: rgba(0, 229, 255, 0.07); color: var(--cyan); }
+.ms-cancel {
+  margin-top: 12px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--text-mute);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 16px;
+}
+.ms-cancel:hover { color: var(--text); }
 @media (max-width: 560px) {
   .t-time { display: none; }
   .t-btn { width: 42px; height: 38px; }

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>L3X kit art boards</title>
+<link rel="stylesheet" href="../../css/tokens.css">
+<style>
+  html { background: #000; }
+  .board { position: relative; overflow: hidden; background: var(--bg); margin: 40px auto; }
+  .board canvas { position: absolute; inset: 0; }
+  .b-grain {
+    position: absolute; inset: 0; opacity: 0.03; pointer-events: none; z-index: 3;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .b-inner {
+    position: relative; z-index: 2; height: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+  }
+  .chrome {
+    font-family: var(--f-block);
+    line-height: 0.9;
+    letter-spacing: 0.01em;
+    background: linear-gradient(180deg, #FFFFFF 0%, #BDE3FF 34%, #6E7DBF 48%, #2A1B57 52%, #B96BFF 66%, #FF2D95 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 3px 0 #1B0B3A) drop-shadow(0 0 26px rgba(255,45,149,.45));
+  }
+  .script {
+    font-family: var(--f-script); color: var(--cyan); line-height: 1;
+    transform: rotate(-4deg);
+    text-shadow: 0 0 6px rgba(0,229,255,.9), 0 0 24px rgba(0,229,255,.45), 0 0 70px rgba(0,229,255,.25);
+  }
+  .mono { font-family: var(--f-mono); color: var(--cyan); letter-spacing: .16em; text-shadow: 0 2px 6px rgba(5,0,15,.95), 0 0 12px rgba(0,229,255,.5); }
+  .mono.dim { color: var(--text-dim); text-shadow: 0 2px 6px rgba(5,0,15,.9); }
+  .sunset {
+    font-family: var(--f-block); color: var(--sunset); line-height: 0.95; letter-spacing: .02em;
+    text-shadow: 0 5px 0 rgba(27,11,58,.85), 0 0 30px rgba(255,158,31,.5);
+  }
+  .white { font-family: var(--f-block); color: var(--text); line-height: 0.95; text-shadow: 0 0 26px rgba(255,45,149,.4); }
+
+  #b-og { width: 1200px; height: 630px; }
+  #b-og .script { font-size: 74px; margin-bottom: -22px; }
+  #b-og .chrome { font-size: 190px; }
+  #b-og .top { font-size: 15px; margin-bottom: 34px; }
+  #b-og .bottom { font-size: 17px; margin-top: 34px; }
+
+  #b-cover { width: 800px; height: 800px; }
+  #b-cover .top { font-size: 15px; position: absolute; top: 64px; left: 0; right: 0; }
+  #b-cover .script { font-size: 72px; margin-bottom: -20px; }
+  #b-cover .chrome { font-size: 150px; }
+  #b-cover .mix { font-size: 92px; margin-top: 26px; }
+  #b-cover .bottom { font-size: 14px; margin-top: 40px; }
+
+  .deal { width: 1080px; height: 1350px; }
+  .deal .eyebrow-b { font-size: 20px; margin-bottom: 60px; }
+  .deal .l1 { font-size: 150px; }
+  .deal .l2 { font-size: 96px; margin-top: 22px; }
+  .deal .l3 { font-size: 24px; margin-top: 40px; letter-spacing: .3em; }
+  .deal .foot { position: absolute; bottom: 64px; left: 0; right: 0; z-index: 2; text-align: center; }
+  .deal .foot .script { font-size: 42px; display: inline-block; margin-right: 14px; vertical-align: middle; }
+  .deal .foot .chrome { vertical-align: middle; }
+  .deal .foot .mono { font-size: 15px; display: block; margin-top: 16px; }
+
+  .still { width: 1920px; height: 1080px; }
+  .still .script { font-size: 88px; margin-bottom: -26px; }
+  .still .chrome { font-size: 210px; }
+  .still .big-white { font-size: 130px; }
+  .still .sub { font-size: 20px; margin-top: 40px; }
+</style>
+</head>
+<body>
+
+<div class="board" id="b-og">
+  <canvas data-grid></canvas><div class="b-grain"></div>
+  <div class="b-inner">
+    <div class="mono top">● LIVE · EVERY THURSDAY · THE SOCIAL ORLANDO</div>
+    <div class="script">Ladies Luv</div>
+    <div class="chrome">LIVIUS</div>
+    <div class="mono bottom">REGGAETON ✦ DEMBOW ✦ BAILE FUNK ✦ HOUSE</div>
+  </div>
+</div>
+
+<div class="board" id="b-cover">
+  <canvas data-grid></canvas><div class="b-grain"></div>
+  <div class="b-inner">
+    <div class="mono top">THURSDAYS · THE SOCIAL · ORLANDO</div>
+    <div class="script">Ladies Luv</div>
+    <div class="chrome">LIVIUS</div>
+    <div class="sunset mix">MIX 001</div>
+    <div class="mono dim bottom">LIVIUSLIVE · PURE BANGERS · NO SKIPS</div>
+  </div>
+</div>
+
+<div class="board deal" id="b-deal-1">
+  <canvas data-grid></canvas><div class="b-grain"></div>
+  <div class="b-inner">
+    <div class="mono eyebrow-b">◆ EVERY THURSDAY</div>
+    <div class="sunset l1">LADIES 18+</div>
+    <div class="white l2">FREE ENTRY<br>ALL NIGHT</div>
+    <div class="mono l3">DOORS 10PM · DOWNTOWN ORLANDO</div>
+  </div>
+  <div class="foot"><span class="script">Ladies Luv</span><span class="chrome" style="font-size:46px">LIVIUS</span><span class="mono">@LIVIUSLIVE · THE SOCIAL</span></div>
+</div>
+
+<div class="board deal" id="b-deal-2">
+  <canvas data-grid></canvas><div class="b-grain"></div>
+  <div class="b-inner">
+    <div class="mono eyebrow-b">◆ LADIES 21+</div>
+    <div class="sunset l1">DRINK FREE</div>
+    <div class="white l2">TIL MIDNIGHT</div>
+    <div class="mono l3">$5 WELLS AFTER · MEN 21+ $5 ALL NIGHT</div>
+  </div>
+  <div class="foot"><span class="script">Ladies Luv</span><span class="chrome" style="font-size:46px">LIVIUS</span><span class="mono">@LIVIUSLIVE · THE SOCIAL</span></div>
+</div>
+
+<div class="board deal" id="b-deal-3">
+  <canvas data-grid></canvas><div class="b-grain"></div>
+  <div class="b-inner">
+    <div class="mono eyebrow-b">◆ THE SOUND</div>
+    <div class="sunset l1">REGGAETON</div>
+    <div class="white l2">DEMBOW · BAILE FUNK<br>HOUSE</div>
+    <div class="mono l3">EVERY THURSDAY · 10PM DOORS</div>
+  </div>
+  <div class="foot"><span class="script">Ladies Luv</span><span class="chrome" style="font-size:46px">LIVIUS</span><span class="mono">@LIVIUSLIVE · THE SOCIAL</span></div>
+</div>
+
+<div class="board still" id="b-still-1">
+  <canvas data-grid></canvas><div class="b-grain"></div>
+  <div class="b-inner">
+    <div class="big-white white">THIS IS THURSDAY</div>
+    <div class="mono sub">LADIES FREE 18+ · THE SOCIAL · DOWNTOWN ORLANDO</div>
+  </div>
+</div>
+
+<div class="board still" id="b-still-2">
+  <canvas data-grid></canvas><div class="b-grain"></div>
+  <div class="b-inner">
+    <div class="script">Ladies Luv</div>
+    <div class="chrome">LIVIUS</div>
+  </div>
+</div>
+
+<div class="board still" id="b-still-3">
+  <canvas data-grid></canvas><div class="b-grain"></div>
+  <div class="b-inner">
+    <div class="big-white white">PRESS PLAY<br>BEFORE YOU PULL UP</div>
+    <div class="mono sub">REGGAETON ✦ DEMBOW ✦ BAILE FUNK ✦ HOUSE</div>
+  </div>
+</div>
+
+<script type="module">
+import { initGrid } from '../../js/fx.js';
+document.querySelectorAll('.board').forEach((b) => {
+  const c = b.querySelector('canvas[data-grid]');
+  const g = initGrid(c, { w: b.offsetWidth, h: b.offsetHeight });
+  g.stop();
+  g.draw(1200); // one static frame
+});
+</script>
+</body>
+</html>

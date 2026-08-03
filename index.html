@@ -57,7 +57,7 @@
     <div class="hero-sub">THURSDAYS · 10PM DOORS · DOWNTOWN ORLANDO</div>
     <div class="hero-ctas">
       <a class="glow-btn" href="https://instagram.com/liviuslive" target="_blank" rel="noopener">Follow @liviuslive</a>
-      <a class="glow-btn ghost" href="https://maps.google.com/?q=54+N+Orange+Ave+Orlando+FL" target="_blank" rel="noopener">Get directions</a>
+      <a class="glow-btn ghost" href="https://maps.google.com/?q=54+N+Orange+Ave+Orlando+FL" data-directions target="_blank" rel="noopener">Get directions</a>
     </div>
   </div>
   <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee-track">
@@ -176,7 +176,7 @@
       <div class="addr-sub">THURSDAYS · DOORS 10PM · 18+</div>
     </div>
     <div class="findus-ctas reveal">
-      <a class="glow-btn" href="https://maps.google.com/?q=54+N+Orange+Ave+Orlando+FL" target="_blank" rel="noopener">Open in maps</a>
+      <a class="glow-btn" href="https://maps.google.com/?q=54+N+Orange+Ave+Orlando+FL" data-directions target="_blank" rel="noopener">Open in maps</a>
       <a class="glow-btn ghost" href="https://instagram.com/thesociallatin" target="_blank" rel="noopener">@thesociallatin</a>
     </div>
   </div>
@@ -210,9 +210,20 @@
 
 <button id="sound-pill" hidden>TAP FOR SOUND</button>
 
+<div id="maps-sheet" hidden>
+  <div class="ms-backdrop"></div>
+  <div class="ms-card">
+    <div class="ms-title">◆ PICK YOUR RIDE</div>
+    <div class="ms-addr">THE SOCIAL · 54 N ORANGE AVE</div>
+    <div class="ms-list"></div>
+    <button class="ms-cancel">Cancel</button>
+  </div>
+</div>
+
 <script type="module">
 import { initGrid, initReveals, initMarquee } from './js/fx.js';
 import { initDeck } from './js/deck.js';
+import { initMapsSheet } from './js/maps.js';
 
 // swap slots — one line each when the real assets land
 const VIDEO_URL = 'https://video.wixstatic.com/video/d95226_dd165bfea31942dcbfde154791566a03/720p/mp4/file.mp4';
@@ -229,6 +240,7 @@ initGrid(document.getElementById('grid'));
 initMarquee(document.getElementById('marquee-track'));
 initReveals();
 initDeck();
+initMapsSheet();
 </script>
 </body>
 </html>
