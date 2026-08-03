@@ -8,9 +8,9 @@ export function initDeck() {
   if (!MIX_URL) {
     const ph = document.createElement('div');
     ph.className = 'sc-placeholder';
-    ph.append('MIX 001 — IN THE LAB · DROPS THIS WEEK', document.createElement('br'));
+    ph.append('MIX 001 — ON THE WAY', document.createElement('br'));
     const sub = document.createElement('span');
-    sub.textContent = 'recorded live from the Thursday room';
+    sub.textContent = 'pure bangers · no skips';
     ph.append(sub);
     slot.append(ph);
     return;
