@@ -29,7 +29,7 @@ export function initDeck() {
   }
 
   const iframe = document.createElement('iframe');
-  iframe.title = 'Latinas Love Livius Mix (SoundCloud)';
+  iframe.title = 'Latinas Luv Livius Mix (SoundCloud)';
   iframe.className = 'sc-hidden';
   iframe.width = '300';
   iframe.height = '80';

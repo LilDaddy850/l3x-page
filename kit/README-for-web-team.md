@@ -1,7 +1,7 @@
-# L3X / Latinas Love Livius - page kit
+# L3X / Latinas Luv Livius - page kit
 
 Hi! This is a ready-to-use upgrade kit for theblockorlando.com/l3x, built to match
-the "Latinas Love Livius" synthwave banner already on the page. Live reference of the
+the "Latinas Luv Livius" synthwave banner already on the page. Live reference of the
 full look: https://lildaddy850.github.io/l3x-page/
 
 Everything here is plug-and-play. Two levels, use either or both.
