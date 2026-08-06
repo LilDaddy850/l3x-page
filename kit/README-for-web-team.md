@@ -1,7 +1,7 @@
-# L3X / Ladies Luv Livius - page kit
+# L3X / Latinas Love Livius - page kit
 
 Hi! This is a ready-to-use upgrade kit for theblockorlando.com/l3x, built to match
-the "Ladies Luv Livius" synthwave banner already on the page. Live reference of the
+the "Latinas Love Livius" synthwave banner already on the page. Live reference of the
 full look: https://lildaddy850.github.io/l3x-page/
 
 Everything here is plug-and-play. Two levels, use either or both.
@@ -47,8 +47,6 @@ everything. It respects visitors' reduced-motion settings.
 - The accessibility email in the site footer reads director@thebockorlando.com -
   missing the "l" in "theblock", so mail to it bounces.
 - The footer TERMS link doesn't point anywhere at the moment.
-- The page title tag says "LATINAS LOVE LIVIUS" while the banner art says
-  "LADIES LUV LIVIUS" - either is fine, just flagging in case one is preferred.
 
 ## Credits
 
